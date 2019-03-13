@@ -1,6 +1,7 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import React from 'react';
 import { AppRegistry } from 'react-native-web';
+import flush from 'styled-jsx/server';
 
 // Force Next-generated DOM elements to fill their parent's height
 const normalizeNextElements = `
@@ -16,9 +17,11 @@ export default class MyDocument extends Document {
     AppRegistry.registerComponent('Main', () => Main);
     const { getStyleElement } = AppRegistry.getApplication('Main');
     const page = renderPage();
+    const styledJsx = flush();
     const styles = [
       <style dangerouslySetInnerHTML={{ __html: normalizeNextElements }} />,
       getStyleElement(),
+      ...styledJsx,
     ];
     return { ...page, styles: React.Children.toArray(styles) };
   }

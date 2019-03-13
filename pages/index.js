@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import styledPrimitives from 'styled-components/primitives/dist/styled-components-primitives.esm';
+import styledPrimitives from 'styled-components/primitives';
 import styledNative from 'styled-components/native/dist/styled-components.native.esm';
 
 const Test = styledNative.View`
@@ -31,5 +31,16 @@ export default props => (
     <Text style={styles.text}>Welcome to Next.js!</Text>
     <Test />
     <Test2 />
+    <div>
+      <p>Hello from styled-jsx</p>
+      <style jsx>
+        {//language=CSS
+        `
+          p {
+            color: green;
+          }
+        `}
+      </style>
+    </div>
   </View>
 );
