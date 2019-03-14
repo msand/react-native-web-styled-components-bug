@@ -1,17 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import styledPrimitives from 'styled-components/primitives';
-import styledNative from 'styled-components/native/dist/styled-components.native.esm';
+import styledNative from 'styled-components/native';
 
 const Test = styledNative.View`
-  background-color: red;
-  height: 100px;
-  width: 100px;
+  background-color: ${props => props.theme.dark};
+  height: 100;
+  width: 100;
 `;
 const Test2 = styledPrimitives.View`
-  background-color: blue;
-  height: 100px;
-  width: 100px;
+  background-color: ${props => props.theme.red};
+  height: 100;
+  width: 100;
 `;
 
 const styles = StyleSheet.create({

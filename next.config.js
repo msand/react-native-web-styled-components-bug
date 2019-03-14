@@ -7,6 +7,7 @@ module.exports = withTM({
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
       'react-native$': 'react-native-web',
+      'styled-components/native$': 'styled-components/native/dist/styled-components.native.esm',
     };
 
     return config;
